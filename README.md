@@ -16,5 +16,8 @@ create our project using pyCharm
 
 ## Git
 `git config --global github.user $YOUR_USERNAME$`
+
 `git config --global github.token $YOURTOKEN$`
+
 `git clone git@github.com:Gdreamlend/autoloadsystem.git`
+
