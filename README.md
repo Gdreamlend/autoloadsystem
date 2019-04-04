@@ -41,3 +41,53 @@ If you make some change to our code, and you have test it in your local environm
 
 `git push -u origin $your banch name$` pushes the changes in your local repository up to github
 
+Ignore idea folders
+`git rm -r --cached .idea`
+
+Merge a branch into master branch in github
+`git checkout master`
+`git pull origin master`
+`git merge $YourBranchName$`
+`git push origin master`
+
+Sometimes when you try to pull or merge code, the git bash may occur the screen to ask you to enter a commit message. The message may say "**Please enter a commit message to explain why this merge is necessary**."  
+
+solution:
+
+- If you do not want to enter any message for this pull or merge:
+
+  1. press`Esc`.
+  
+  2. press`:`+`w`+`q` and then press `Enter`.
+  
+- If you want to enter a message for it:
+
+  1. Press `i`.
+  
+  2. Input your message.
+  
+  3. Press`Esc`.
+  
+  4. press`:`+`w`+`q` and then press `Enter`.
+  
+
+If you have pushed your code before you ignore some folders when you try to pull, you may get the message like this: "**The following untracked working tree files would be overwritten by checkout**"
+
+solution:
+
+`git fetch --all`
+
+` git reset --hard origin/{branch_name}`
+
+
+If you changed your local code and have not committed it, but you want  to pull the update from the remote repository, you may get the error massage "**Your local changes to the following files would be overwritten by merge**"
+
+solution:
+
+`git stash`
+
+`git pull origin master`
+
+`git stash pop`
+
+
