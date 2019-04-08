@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('homepage.urls')),
     #path('admin/', admin.site.urls),
+    #url(r'^main/', include('main.urls'), namespace='Main'),
 ]
