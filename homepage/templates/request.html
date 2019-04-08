@@ -5,6 +5,11 @@
         <meta charset="utf-8">
         <title>Request</title>
     </head>
+    <style>
+         footer {
+        background-color:darkred;
+    }
+    </style>
     <center>
         <img src="https://www.duq.edu/assets/prebuilt/img/logo_school.png" class="img-fluid" alt="Duquesne University">
 
@@ -13,10 +18,74 @@
     <center>
         <div class="container-fluid">
         <h1>Submit New Slide Request Here!</h1>
+            
+           <form action="/action_page.php">
+  <script>
+  function set(){
+    var el = document.getElementById("lobbies");
+    if(el.checked)
+      document.getElementById("1f").disabled = false;
+    else
+     document.getElementById("1f").disabled = true;
+        if(el.checked)
+      document.getElementById("2f").disabled = false;
+    else
+     document.getElementById("2f").disabled = true;
+  }
+</script>
+
+
+<div><input type="radio" name="o1" id="lobbies" onchange="set();"/>Lobbies</div>
+<div id="yesFries"><input type="checkbox" name="e1" id="1f" disabled="disabled"/>First Floor Lobby<br>
+<input type="checkbox" name="e1" id="2f" disabled="disabled"/>Second Floor Lobby</div>
+
+<div><input type="radio" name="o1" id="office" onchange="set();"/>Second Floor Office</div>
+</form>
+
+        <form action="/action_page.php">
+        Email:<br>
+        <input type="text" name="email" >
+        <br>
+        Name/Department:<br>
+        <input type="text" name="name" >
+        <br>
+            Description:<br>
+            <input type="text" name="description" >
+            <br><br>
+
+            <label for="start">Start date:</label>
+
+<input type="date" id="start" name="start"
+       min="2018-01-01" max="3000-12-31">
+
+            <label for="start">End Date:</label>
+
+<input type="date" id="start" name="end"
+       min="2018-01-01" max="3000-12-31">
+            </form>
+           <form action="contact.php"
+enctype="multipart/form-data" method="post" name="EmailTestData">
+
+<p>
+Choose File From Computer:
+<input type="file" name="datafile" size="40" style="color:darkred">
+</p>
+                 <!--<a href="submitted">--><input type="submit" value="Submit" style="color:darkred"><!--</a>-->
+            <br>
+             </form>
+
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
         
-            <a href="/" class="w3-button w3-border w3-xlarge"><button class="w3-button w3-border w3-xlarge">Go Back Home</button></a>
+            <a href="/" class="w3-button w3-border w3-xlarge"><button class="w3-button w3-border w3-xlarge" style="color:darkred">Go Back Home</button></a>
         </div>
     </center>
     </body>
+<br><br>
+<div class="container">
+    <footer>
+        <center><br><br></center>
+    </footer>
+         </div>
 
 </html>

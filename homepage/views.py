@@ -12,3 +12,5 @@ class AboutPageView(TemplateView):
     template_name = "about.html"
 class RequestPageView(TemplateView):
     template_name = "request.html"
+class SubmittedPageView(TemplateView):
+    template_name = "submitted.html"
