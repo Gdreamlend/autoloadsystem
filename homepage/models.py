@@ -19,9 +19,11 @@ class Slide(models.Model):
     file = models.FileField(upload_to=get_file_path,default="")
     file_address = 'static/slide/'
     file_url = models.CharField(max_length=2000, default=file)
+    monitor = models.CharField(max_length=256, default="", choices=[('First Floor Lobby', 'First Floor Lobby'),('Second Floor Lobby','Second Floor Lobby'), ('Second Floor Office', 'Second Floor Office')])
+    priority = models.CharField(max_length=2, default= 0)
     start_date = models.DateField(default=datetime.date.today)
     end_date = models.DateField(default=datetime.date.today)
-    status= models.CharField(max_length=2, default=0)
+    status= models.CharField(max_length=2, default=0, choices=[(1, 'approve'), (2, 'reject'), (0, 'pending')])
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
@@ -36,7 +38,7 @@ class Department(models.Model):
     id = models.AutoField(primary_key=True)
     department = models.CharField(max_length=200)
     email = models.EmailField(max_length=70, null=True, blank=True, unique=True)
-    role = models.CharField(max_length=2)
+    role = models.CharField(max_length=2, default= 0)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
