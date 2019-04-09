@@ -18,8 +18,13 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+admin.site.site_header = "Slide Presentation Admin"
+admin.site.site_title = "Slide Presentation Admin Portal"
+admin.site.index_title = "Welcome to Slide Presentation Portal"
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('homepage.urls')),
     #path('admin/', admin.site.urls),
+    #url(r'^main/', include('main.urls'), namespace='Main'),
 ]
