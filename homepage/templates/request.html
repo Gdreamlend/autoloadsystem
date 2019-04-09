@@ -74,8 +74,13 @@ Choose File From Computer:
             <br>
              </form>
 <br><br>
-<!--<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>-->
 
+<!--<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>-->
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p}}
+                <button type="submit">submit</button>
+            </form>
         
             <a href="/" class="w3-button w3-border w3-xlarge"><button class="w3-button w3-border w3-xlarge" style="color:darkblue; height:25px; width:110px; background-color:white; border-color:darkred">Go Back Home</button></a>
         </div>
