@@ -1,1 +1,5 @@
-django
+certifi==2018.8.24
+Django==2.1.7
+pycryptodome==3.8.0
+pytz==2018.9
+wincertstore==0.2
