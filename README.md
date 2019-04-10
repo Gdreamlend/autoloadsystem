@@ -37,22 +37,36 @@ If you make some change to our code, and you have test it in your local environm
 
 `git add .` add the changed files to repo
 
-`git commit -m $your comments for these change$` Commits the tracked changes and prepares them to be pushed to a remote repository
+`git commit -m "Your Comments For These Change"` Commits the tracked changes and prepares them to be pushed to a remote repository
 
-`git push -u origin $your banch name$` pushes the changes in your local repository up to github
+`git push -u origin YourBranchName` pushes the changes in your local repository up to github
 
-Ignore idea folders
-`git rm -r --cached .idea`
+---
 
-Merge a branch into master branch in github
-`git checkout master`
-`git pull origin master`
-`git merge $YourBranchName$`
-`git push origin master`
+**Ignore idea folders**
 
-Sometimes when you try to pull or merge code, the git bash may occur the screen to ask you to enter a commit message. The message may say "**Please enter a commit message to explain why this merge is necessary**."  
+       $ git rm -r --cached .idea
 
-solution:
+---
+
+
+**Merge a branch into master branch**
+
+
+
+        on branch development
+        $ git merge master #(resolve any merge conflicts if there are any)
+
+        $ git checkout master
+        $ git merge development #(there won't be any conflicts now)
+        $ git push origin master
+        
+
+-------
+
+error "**Please enter a commit message to explain why this merge is necessary**."  
+
+
 
 - If you do not want to enter any message for this pull or merge:
 
@@ -70,24 +84,24 @@ solution:
   
   4. press`:`+`w`+`q` and then press `Enter`.
   
+----
 
-If you have pushed your code before you ignore some folders when you try to pull, you may get the message like this: "**The following untracked working tree files would be overwritten by checkout**"
-
-solution:
-
-`git fetch --all`
-
-` git reset --hard origin/{branch_name}`
+error "**The following untracked working tree files would be overwritten by checkout**"
 
 
-If you changed your local code and have not committed it, but you want  to pull the update from the remote repository, you may get the error massage "**Your local changes to the following files would be overwritten by merge**"
+        $ git fetch --all
 
-solution:
+        $ git reset --hard origin/BranchName
 
-`git stash`
+-----
 
-`git pull origin master`
-
-`git stash pop`
+error "**Your local changes to the following files would be overwritten by merge**"
 
 
+        $ git stash
+
+        $ git pull origin master
+
+        $ git stash pop
+
+-----
