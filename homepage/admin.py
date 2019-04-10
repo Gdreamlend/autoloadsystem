@@ -12,7 +12,7 @@ def make_rejected(modeladmin, request, queryset):
 make_rejected.short_description = "Reject all selected"
 
 class SlideAdmin(admin.ModelAdmin):
-    list_display = ('department','file','thumbnail','monitor','start_date','end_date','priority', 'description','status')
+    list_display = ('department','thumbnail','monitor','start_date','end_date','priority', 'description','status')
     list_display_links = ['department']
     list_editable = ['monitor','priority', 'start_date', 'end_date','status']
     search_fields = ['monitor', 'status','department']

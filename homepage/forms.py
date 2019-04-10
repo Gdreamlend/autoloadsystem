@@ -12,7 +12,7 @@ from homepage.models import Slide
 class SlideForm(forms.ModelForm):
     class Meta:
         model = Slide
-        fields = ('department','monitor', 'start_date','end_date','file', 'description')
+        fields = ('department','email', 'monitor', 'start_date','end_date','file', 'description')
     #monitor = favorite_fruit= forms.CharField(label='Where do you want to put your slide?', widget=forms.Select(choices=FRUIT_CHOICES))
     #email= forms.CharField()
     #department = forms.CharField()
