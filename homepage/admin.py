@@ -20,8 +20,8 @@ class SlideAdmin(admin.ModelAdmin):
     actions = [make_approved, make_rejected]
 
     def thumbnail(self, obj):
-        return format_html('<img src="{}" style="width: 130px; \
-                            height: 100px"/>'.format(obj.file))
+        return format_html('<img src="https://jiaojiaogao1.blob.core.windows.net/slidefiles/uploads-from-custom-storage-dss.png" style="width: 130px; \
+                            height: 100px"/>')
     thumbnail.short_description = 'thumbnail'
 
     # def thumbnail(self, obj):
