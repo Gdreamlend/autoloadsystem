@@ -49,10 +49,10 @@ import uuid
 def upload_path(instance, filename):
     return 'uploads-from-custom-storage-{}'.format(filename)
 
-def get_file_path(instance, filename):
-    ext = filename.split('.')[-1]
-    filename = "%s.%s" % (uuid.uuid4(), ext)
-    return os.path.join('b/', filename)
+# def get_file_path(instance, filename):
+#     ext = filename.split('.')[-1]
+#     filename = "%s.%s" % (uuid.uuid4(), ext)
+#     return os.path.join('b/', filename)
 
 
 def get_file_path(instance, filename):
@@ -66,6 +66,7 @@ class Slide(models.Model):
     #author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default="")
     department = models.CharField(max_length=200,default="")
     file = models.FileField(upload_to=get_file_path,default="")
+    #file = models.CharField(max_length=200,default="")
     email = models.EmailField(default="")
     # file = models.FileField(upload_to=upload_path, storage=OverwriteStorage(), null=True, blank=True)
     monitor = models.CharField(max_length=256, default="First Floor Lobby", choices=[('First Floor Lobby', 'First Floor Lobby'),('Second Floor Lobby','Second Floor Lobby'), ('Second Floor Office', 'Second Floor Office')])
