@@ -23,7 +23,7 @@ class SlideAdmin(admin.ModelAdmin):
     actions = [make_approved, make_rejected]
 
     def thumbnail(self, obj):
-        url = "http://40.113.220.78/autoload_system"
+        url = "http://40.113.220.78/autoload_system/slide/"
         if obj.file:
              url = url + str(obj.file)
 
