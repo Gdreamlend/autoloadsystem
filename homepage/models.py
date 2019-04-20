@@ -98,4 +98,4 @@ class Department(models.Model):
         self.save()
 
     def __str__(self):
-        return str(self.id)
+        return self.department
