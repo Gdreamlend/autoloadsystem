@@ -11,7 +11,7 @@ def upload_path(instance, filename):
     return 'uploads-from-custom-storage-{}'.format(filename)
 
 def content_file_name(instance, filename):
-    return '/'.join(['content', instance.id, filename])
+    return '/'.join(['content', instance.department, filename])
 
 def get_file_path(instance, filename):
     ext = filename.split('.')[-1]
