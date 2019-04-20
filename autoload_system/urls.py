@@ -28,5 +28,5 @@ urlpatterns = [
     url(r'^', include('homepage.urls')),
     #path('admin/', admin.site.urls),
     #url(r'^main/', include('main.urls'), namespace='Main'),
-    url(r'^slide/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT})
+    url(r'^slide/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 ]

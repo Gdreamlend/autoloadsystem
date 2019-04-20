@@ -139,4 +139,5 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 FILE_UPLOAD_PERMISSIONS = 0o644
+MEDIA_URL = '/slide/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'slide')
