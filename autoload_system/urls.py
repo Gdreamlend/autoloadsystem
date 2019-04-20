@@ -23,8 +23,8 @@ admin.site.site_title = "Slide Presentation Admin Portal"
 admin.site.index_title = "Welcome to Slide Presentation Portal"
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^', include('homepage.urls')),
+    url(r'admin/$', admin.site.urls),
+    url(r'^$', include('homepage.urls')),
     #path('admin/', admin.site.urls),
     #url(r'^main/', include('main.urls'), namespace='Main'),
 ]
