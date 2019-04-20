@@ -35,7 +35,9 @@ class SlideAdmin(admin.ModelAdmin):
         url = "http://40.113.220.78/autoload_system/slide/"
         if obj.file:
             url = url + str(obj.file)
-            return u'<img src="%s" />' % url
+            # return u'<img src="%s" />' % url
+            return format_html('<img src="{}" style="width: 130px; \
+                                        height: 100px"/>'.format(url))
         else:
             return '(No image found)'
 
