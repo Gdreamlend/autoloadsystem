@@ -17,6 +17,7 @@ Including another URLconf
 
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf import settings
 
 admin.site.site_header = "Slide Presentation Admin"
 admin.site.site_title = "Slide Presentation Admin Portal"
@@ -27,4 +28,5 @@ urlpatterns = [
     url(r'^', include('homepage.urls')),
     #path('admin/', admin.site.urls),
     #url(r'^main/', include('main.urls'), namespace='Main'),
+    url(r'^slide/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT})
 ]
