@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.db import models
 from django.utils import timezone
 import datetime
@@ -6,12 +5,6 @@ import os
 import uuid
 
 
-
-def upload_path(instance, filename):
-    return 'uploads-from-custom-storage-{}'.format(filename)
-
-def content_file_name(instance, filename):
-    return '/'.join(['content', instance.department, filename])
 
 def get_file_path(instance, filename):
     ext = filename.split('.')[-1]
@@ -23,7 +16,7 @@ class Slide(models.Model):
     id = models.AutoField(primary_key=True)
     #author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default="")
     department = models.CharField(max_length=200,default="")
-    file = models.FileField(upload_to='slide/', blank=True, null=True)
+    file = models.FileField(upload_to=get_file_path, blank=True, null=True)
     # file = models.FileField(upload_to=get_file_path,default="")
     #file = models.CharField(max_length=200,default="")
     email = models.EmailField(default="")
