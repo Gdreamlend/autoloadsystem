@@ -89,7 +89,7 @@ class Department(models.Model):
     id = models.AutoField(primary_key=True)
     department = models.CharField(max_length=200)
     email = models.EmailField(max_length=70, null=True, blank=True, unique=True)
-    role = models.CharField(max_length=2, default= 0)
+    role = models.CharField(max_length=2, default= '0')
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
