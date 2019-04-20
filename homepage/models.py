@@ -58,7 +58,7 @@ def get_file_path(instance, filename):
 def get_file_path(instance, filename):
     ext = filename.split('.')[-1]
     filename = "%s.%s" % (uuid.uuid4(), ext)
-    return os.path.join('slide/slide/', filename)
+    return os.path.join('slide/', filename)
 
 
 class Slide(models.Model):
