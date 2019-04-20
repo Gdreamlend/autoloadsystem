@@ -25,7 +25,7 @@ class SlideAdmin(admin.ModelAdmin):
     def thumbnail(self, obj):
         url = "http://40.113.220.78/autoload_system"
         if obj.file:
-             url = url + obj.file
+             url = url + str(obj.file)
 
         return u'<img src="%s"  style="width: 130px; \
                             height: 100px"/>' % url
