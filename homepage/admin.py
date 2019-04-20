@@ -22,10 +22,11 @@ class SlideAdmin(admin.ModelAdmin):
 
     actions = [make_approved, make_rejected]
 
-    # def thumbnail(self, obj):
-    #     return format_html('<img src="" style="width: 130px; \
-    #                         height: 100px"/>')
-    # thumbnail.short_description = 'thumbnail'
+    def thumbnail(self, obj):
+        url = "http://40.113.220.78/autoload_system" + obj.file
+        return format_html('<img src= <%=url%> style="width: 130px; \
+                            height: 100px"/>')
+    thumbnail.short_description = 'thumbnail'
 
     # def thumbnail(self, obj):
     #     if obj.file:
@@ -35,13 +36,13 @@ class SlideAdmin(admin.ModelAdmin):
     #
     # thumbnail.short_description = 'thumbnail'
     # thumbnail.allow_tags = True
-    def thumbnail(self, obj):
-        if obj.file:
-            return mark_safe('<img src="%s"  height="100px"/>' % obj.file)
-        else:
-            return 'No_image'
-        thumbnail.short_description = 'thumbnail'
-        thumbnail.allow_tags = True
+    # def thumbnail(self, obj):
+    #     if obj.file:
+    #         return mark_safe('<img src="%s"  height="100px"/>' % obj.file)
+    #     else:
+    #         return 'No_image'
+    #     thumbnail.short_description = 'thumbnail'
+    #     thumbnail.allow_tags = True
 
 admin.site.register(Slide, SlideAdmin)
 admin.site.register(Department)
