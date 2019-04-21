@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from homepage.forms import SlideForm
 from django.views.generic import TemplateView
-
+from django.core.mail import EmailMessage
+from django.conf import settings
 
 #views
 class HomePageView(TemplateView):
@@ -22,9 +23,10 @@ class RequestPageView(TemplateView):
             post = form.save(commit=False)
             post.user = request.user
             post.save()
-            #text = form.cleaned_data['form']
             form = SlideForm()
-
+            email_address = 'jiangshanyigou@gmail.com'
+            email = EmailMessage('New Slide Application', 'You have a new application', to=[email_address])
+            email.send()
             return render(request, "submitted.html", locals())
         else:
             form = SlideForm()
