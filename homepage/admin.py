@@ -3,6 +3,7 @@ from .models import Slide
 from .models import Department
 from django.utils.html import format_html
 from django.core.mail import EmailMessage
+from django.conf import settings
 
 def make_approved(modeladmin, request, queryset):
     queryset.update(status='approved')
