@@ -2,14 +2,23 @@ from django.contrib import admin
 from .models import Slide
 from .models import Department
 from django.utils.html import format_html
-from django.utils.safestring import mark_safe
+from django.core.mail import EmailMessage
 
 def make_approved(modeladmin, request, queryset):
     queryset.update(status='approved')
+    for apply in queryset:
+        email_address = apply.email
+        email = EmailMessage('Slide Application', 'Your application has been approved', to=[email_address])
+        email.send()
 make_approved.short_description = "Approve all selected"
 
 def make_rejected(modeladmin, request, queryset):
     queryset.update(status='rejected')
+
+    for apply in queryset:
+        email_address = apply.email
+        email = EmailMessage('Slide Application', 'Your application has been rejected', to=[email_address])
+        email.send()
 make_rejected.short_description = "Reject all selected"
 
 
