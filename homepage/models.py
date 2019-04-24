@@ -29,6 +29,7 @@ class Slide(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     description = models.TextField(default="")
     #published_date = models.DateTimeField(blank=True, null=True)
+    reject_infor = models.CharField(max_length=200,default="")
 
     def publish(self):
         self.published_date = timezone.now()
