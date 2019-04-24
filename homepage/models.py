@@ -28,7 +28,7 @@ class Slide(models.Model):
     status= models.CharField(max_length=20, default='pending', choices=[('approved', 'approved'), ('rejected', 'rejected'), ('pending', 'pending')])
     created_date = models.DateTimeField(default=timezone.now)
     description = models.TextField(default="")
-    #published_date = models.DateTimeField(blank=True, null=True)
+    reject_info = models.CharField(max_length=200,blank=True, default="")
 
     def publish(self):
         self.published_date = timezone.now()

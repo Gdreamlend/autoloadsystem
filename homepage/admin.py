@@ -32,14 +32,7 @@ class SlideAdmin(admin.ModelAdmin):
 
     actions = [make_approved, make_rejected]
 
-    # def thumbnail(self, obj):
-    #     url = "http://40.113.220.78/autoload_system/slide/"
-    #     if obj.file:
-    #          url = url + str(obj.file)
-    #
-    #     return u'<img src="%s"  style="width: 130px; \
-    #                         height: 100px"/>' % url
-    # thumbnail.short_description = 'thumbnail'
+
 
     def thumbnail(self, obj):
         url = "http://40.113.220.78/autoload_system/slide/"
@@ -53,13 +46,19 @@ class SlideAdmin(admin.ModelAdmin):
 
     thumbnail.short_description = 'thumbnail'
     thumbnail.allow_tags = True
-    # def thumbnail(self, obj):
-    #     if obj.file:
-    #         return mark_safe('<img src="%s"  height="100px"/>' % obj.file)
-    #     else:
-    #         return 'No_image'
-    #     thumbnail.short_description = 'thumbnail'
-    #     thumbnail.allow_tags = True
+
+    def save_model(self, request, obj, form, change):
+
+        super().save_model(request, obj, form, change)
+        if obj.status == "approved":
+            email_address = obj.email
+            email = EmailMessage('Slide Application', 'Your application has been approved', to=[email_address])
+            email.send()
+        elif obj.status == "rejected":
+            email_address = obj.email
+            email = EmailMessage('Slide Application', 'Your application has been rejected, the reason is: '+ obj.reject_info, to=[email_address])
+            email.send()
+
 
 admin.site.register(Slide, SlideAdmin)
 admin.site.register(Department)
