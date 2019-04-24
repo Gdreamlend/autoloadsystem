@@ -18,7 +18,7 @@ def make_rejected(modeladmin, request, queryset):
 
     for apply in queryset:
         email_address = apply.email
-        email = EmailMessage('Slide Application', 'Your application has been rejected'+apply.reject_infor, to=[email_address])
+        email = EmailMessage('Slide Application', 'Your application has been rejected', to=[email_address])
         email.send()
 make_rejected.short_description = "Reject all selected"
 
