@@ -3,7 +3,7 @@ from homepage.forms import SlideForm
 from django.views.generic import TemplateView
 from django.core.mail import EmailMessage
 from django.conf import settings
-
+from django.contrib import messages
 #views
 class HomePageView(TemplateView):
     def get(self, request, **kwargs):
@@ -30,6 +30,7 @@ class RequestPageView(TemplateView):
             return render(request, "submitted.html", locals())
         else:
             form = SlideForm()
+            messages.error(request, "Submit failed, Change error inputs please")
             return render(request, self.template_name, {'form': form})
 class SubmittedPageView(TemplateView):
     template_name = "submitted.html"

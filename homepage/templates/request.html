@@ -9,6 +9,11 @@
          footer {
         background-color:darkred;
     }
+    .ui-datepicker {
+   background: #c4dce8;
+   border: 1px solid #f7f7f7;
+   color: #447e9b;
+    }
     </style>
     <center>
         <img src="https://www.duq.edu/assets/prebuilt/img/logo_school.png" class="img-fluid" alt="Duquesne University">
@@ -18,6 +23,44 @@
     <center>
         <div class="container-fluid">
         <h1>Submit New Slide Request Here!</h1>
+            <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+            <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+            <script>
+                $(document).ready(function(){
+                    $( "#id_start_date" ).datepicker({ dateFormat: 'yy-mm-dd' });
+                    $( "#id_end_date" ).datepicker({ dateFormat: 'yy-mm-dd' });
+                    $("#id_start_date").blur(function(){
+                        val = $(this).val();
+                        val1 = Date.parse(val);
+                        if (isNaN(val1)==true && val!==''){
+                            alert("The start_date is error");
+                            document.getElementById('id_start_date').value = "";
+                        }
+                        else{
+                           console.log(val1);
+                        }
+                    });
+                    $("#id_end_date").blur(function(){
+                        val = $(this).val();
+                        val1 = Date.parse(val);
+                        if (isNaN(val1)==true && val!==''){
+                            alert("The end_date is error");
+                            document.getElementById('id_end_date').value = "";
+
+                        }
+                        else{
+                           console.log(val1);
+                        }
+                    });
+                });
+
+            {% if messages %}
+                {% for message in messages %}
+                    alert(message);
+                {% endfor %}
+            {% endif %}
+
+            </script>
 
 <!--           <form action="/action_page.php">
   <script>
