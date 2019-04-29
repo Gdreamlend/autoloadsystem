@@ -3,8 +3,13 @@ from django.utils import timezone
 import datetime
 import os
 import uuid
+from django import forms
 
-
+def validate_file_extension(value):
+  ext = os.path.splitext(value.name)[1]
+  valid_extensions = ['.pptx','.ppt','.ppsx']
+  if not ext in valid_extensions:
+    raise forms.ValidationError(u'File not supported!')
 
 def get_file_path(instance, filename):
     ext = filename.split('.')[-1]
@@ -12,11 +17,13 @@ def get_file_path(instance, filename):
     return os.path.join('slide/', filename)
 
 
+
 class Slide(models.Model):
+
     id = models.AutoField(primary_key=True)
     #author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default="")
     department = models.CharField(max_length=200,default="")
-    file = models.FileField(upload_to=get_file_path, blank=True, null=True)
+    file = models.FileField(upload_to=get_file_path,validators=[validate_file_extension], blank=True, null=True)
     email = models.EmailField(default="")
     monitor = models.CharField(max_length=256, default="First Floor Lobby", choices=[('First Floor Lobby', 'First Floor Lobby'),('Second Floor Lobby','Second Floor Lobby'), ('Second Floor Office', 'Second Floor Office')])
     priority = models.CharField(max_length=2, default= 1,choices=[('1', '1'), ('2', '2'), ('3', '3'),('4','4'), ('5', '5'), ('6', '6'), ('7','7'),('8','8'), ('9', '9'),('10', '10')])
