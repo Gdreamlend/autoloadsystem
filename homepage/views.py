@@ -30,7 +30,6 @@ class RequestPageView(TemplateView):
             return render(request, "submitted.html", locals())
         else:
             form = SlideForm()
-            messages.error(request, "Submit failed, Change error inputs please")
             return render(request, self.template_name, {'form': form})
 class SubmittedPageView(TemplateView):
     template_name = "submitted.html"

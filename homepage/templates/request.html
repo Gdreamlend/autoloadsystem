@@ -52,13 +52,27 @@
                            console.log(val1);
                         }
                     });
+
+                    $("#id_file").blur(function () {
+                        val = $(this).val();
+                        if(val && !val.match(/\.(ppt|pptx|ppsx)$/i)) {
+                            $("#id_error").show();
+                            $("#id_file").val('');
+                            $("#btnSubmit").attr('disabled', true);
+                        }
+                        else {
+                            $("#id_error").hide();
+                            $("#btnSubmit").attr('disabled', false);
+                        }
+
+                    })
                 });
 
-            {% if messages %}
-                {% for message in messages %}
-                    alert(message);
-                {% endfor %}
-            {% endif %}
+{#            {% if messages %}#}
+{#                {% for message in messages %}#}
+{#                    alert(message);#}
+{#                {% endfor %}#}
+{#            {% endif %}#}
 
             </script>
 
@@ -123,7 +137,8 @@ Choose File From Computer:
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p}}
-                <button type="submit">submit</button>
+                <button id="btnSubmit" type="submit">submit</button>
+                <div id = "id_error" style="display:none;" ><p style="color:red;">The file type is not accepted, please upload ppsx file.</p></div>
             </form>
             <br><br>
             <a href="/autoload_system" class="w3-button w3-border w3-xlarge"><button class="w3-button w3-border w3-xlarge" style="color:darkblue; height:25px; width:110px; background-color:white; border-color:darkred">Go Back Home</button></a>
