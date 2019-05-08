@@ -7,7 +7,7 @@ from django import forms
 
 def validate_file_extension(value):
     ext = os.path.splitext(value.name)[1]
-    valid_extensions = ['.pptx', '.ppt', '.ppsx']
+    valid_extensions = ['.pptx', '.ppsx']
     if not ext in valid_extensions and ext is not None:
         raise forms.ValidationError(u'')
     return
