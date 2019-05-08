@@ -43,7 +43,8 @@ class SlideAdmin(admin.ModelAdmin):
             #                             height: 100px" />'.format(url))
 
             return format_html('<iframe id = "iframe1" src = "http://docs.google.com/gview?url={}&embedded=true" \
-                onload = "javascript:this.contentWindow.location.hash=":0.page.20";" >'.format(url))
+                onload = "javascript:this.contentWindow.location.hash=":0.page.20";" style="width: 130px; \
+            #                             height: 100px" />'.format(url))
         else:
             return '(No image found)'
 
