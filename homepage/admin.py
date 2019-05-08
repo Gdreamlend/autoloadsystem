@@ -39,8 +39,8 @@ class SlideAdmin(admin.ModelAdmin):
         if obj.file:
             url = url + str(obj.file)
             # return u'<img src="%s" />' % url
-            return format_html('<iframe src= "https://view.officeapps.live.com/op/embed.aspx?src=[{}]" style="width: 130px; \
-                                        height: 100px" frameborder="0"/>'.format(url))
+            return format_html('<img src= "https://view.officeapps.live.com/op/embed.aspx?src=[{}]" style="width: 130px; \
+                                        height: 100px" />'.format(url))
         else:
             return '(No image found)'
 
