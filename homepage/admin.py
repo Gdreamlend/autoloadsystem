@@ -35,12 +35,12 @@ class SlideAdmin(admin.ModelAdmin):
 
 
     def thumbnail(self, obj):
-        url = "http://40.113.220.78/autoload_system/slide/"
+        url = "http://slideshow.ml//autoload_system/slide/"
         if obj.file:
             url = url + str(obj.file)
             # return u'<img src="%s" />' % url
-            return format_html('<img src="{}" style="width: 130px; \
-                                        height: 100px"/>'.format(url))
+            return format_html('<iframe src= "https://view.officeapps.live.com/op/embed.aspx?src=[{}]" style="width: 130px; \
+                                        height: 100px" frameborder="0"/>'.format(url))
         else:
             return '(No image found)'
 
